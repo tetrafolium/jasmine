@@ -1,3 +1,4 @@
+/* eslint-disable compat/compat */
 describe('Custom Async Matchers (Integration)', function() {
   var env;
 
@@ -27,8 +28,8 @@ describe('Custom Async Matchers (Integration)', function() {
       expect(result.status).toEqual('passed');
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it('uses the negative compare function for a negative comparison, if provided', function(done) {
@@ -51,8 +52,8 @@ describe('Custom Async Matchers (Integration)', function() {
       expect(result.status).toEqual('passed');
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it('generates messages with the same rules as built in matchers absent a custom message', function(done) {
@@ -76,8 +77,8 @@ describe('Custom Async Matchers (Integration)', function() {
       expect(result.failedExpectations[0].message).toEqual("Expected 'a' to be real.");
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("passes the jasmine utility to the matcher factory", function (done) {
@@ -106,8 +107,8 @@ describe('Custom Async Matchers (Integration)', function() {
       );
     };
 
-    env.addReporter({specDone: specExpectations, jasmineDone: done});
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("provides custom equality testers to the matcher factory via matchersUtil", function(done) {
@@ -138,7 +139,7 @@ describe('Custom Async Matchers (Integration)', function() {
       expect(result.failedExpectations).toEqual([]);
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 });

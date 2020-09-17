@@ -37,9 +37,9 @@ describe("Custom Matchers (Integration)", function () {
       expect(firstSpecResult.failedExpectations[0].message).toEqual("matcherForSpec: actual: zzz; expected: yyy");
       done();
     };
-    env.addReporter({ specDone:specDoneSpy, jasmineDone: expectations});
+    env.addReporter({ specDone:specDoneSpy });
 
-    env.execute();
+    env.execute(null, expectations);
   });
 
   it("passes the spec if the custom matcher passes", function(done) {
@@ -57,8 +57,8 @@ describe("Custom Matchers (Integration)", function () {
       expect(result.status).toEqual('passed');
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("passes the spec if the custom equality matcher passes for types nested inside asymmetric equality testers", function(done) {
@@ -81,8 +81,8 @@ describe("Custom Matchers (Integration)", function () {
       expect(result.status).toEqual('passed');
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("displays an appropriate failure message if a custom equality matcher fails", function(done) {
@@ -106,8 +106,8 @@ describe("Custom Matchers (Integration)", function () {
       );
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("uses the negative compare function for a negative comparison, if provided", function(done) {
@@ -128,8 +128,8 @@ describe("Custom Matchers (Integration)", function () {
       expect(result.status).toEqual('passed');
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("generates messages with the same rules as built in matchers absent a custom message", function(done) {
@@ -151,8 +151,8 @@ describe("Custom Matchers (Integration)", function () {
       expect(result.failedExpectations[0].message).toEqual("Expected 'a' to be real.");
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("passes the expected and actual arguments to the comparison function", function(done) {
@@ -176,8 +176,8 @@ describe("Custom Matchers (Integration)", function () {
       expect(argumentSpy).toHaveBeenCalledWith(true, "arg1", "arg2");
     };
 
-    env.addReporter({ specDone: specExpectations, jasmineDone: done });
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("passes the jasmine utility to the matcher factory", function (done) {
@@ -204,8 +204,8 @@ describe("Custom Matchers (Integration)", function () {
       );
     };
 
-    env.addReporter({specDone: specExpectations, jasmineDone: done});
-    env.execute();
+    env.addReporter({ specDone: specExpectations });
+    env.execute(null, done);
   });
 
   it("provides custom equality testers to the matcher factory via matchersUtil", function (done) {
@@ -234,7 +234,7 @@ describe("Custom Matchers (Integration)", function () {
       expect(result.failedExpectations).toEqual([]);
     };
 
-    env.addReporter({specDone: specExpectations, jasmineDone: done});
-    env.execute();
+    env.addReporter({specDone: specExpectations});
+    env.execute(null, done);
   });
 });
