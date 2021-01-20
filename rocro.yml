@@ -7,68 +7,74 @@ inspecode:
   tools:
     clang-format:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 234 }
 
     cpd:
       options: [--skip-lexical-errors]
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 113 }
 
     eslint:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 99 }
 
     flow:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 0 }   # found no input files
 
     # fortify:
     #   thresholds: {num-issues: 999}
 
     fossology:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 11 }
 
     grep:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 23 }
 
     htmlhint:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 999 }   # Skipped
 
     jscpd:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 98 }
 
     jshint:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 86 }
 
     misspell:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 4 }
 
     npm-audit:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 0 }
 
     npm-test:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 0 }
 
     phpcs:
-      thresholds: { num-issues: 999 }
+      options:
+        --exclude:
+          - Generic.Commenting.DocComment
+          - PEAR.Functions.FunctionCallSignature
+          - PEAR.Functions.FunctionDeclaration
+          - PEAR.WhiteSpace.ScopeIndent
+      thresholds: { num-issues: 373 }
 
     pmd:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 114 }
 
     prettier:
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 288 }
 
     stylelint:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 25 }
 
     tidy:
       auto-fix: true
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 999 }   # Skipped
 
     # understand:
     #   thresholds: {num-issues: 999}
 
     unused:
       options: [--single-occurrence, --all-likelihoods]
-      thresholds: { num-issues: 999 }
+      thresholds: { num-issues: 28 }
